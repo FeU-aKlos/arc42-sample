@@ -1,0 +1,24 @@
+=== 2. Use AsciiDoc for writing documentation in arc42
+
+Date: 2023-06-12
+
+==== Status
+
+Accepted
+
+==== Decision makers
+
+* Richard Heininger
+* Stephan Weißenberger
+
+==== Context
+
+Software should be documented in a widely used and standardized way. We use `arc42` this format. For writing the documentation we had to decide between `markdown` and `asciidoc`. `markdown` is a widely known easy to understand format and is readable without a renderer, it lacks configuration for text. `asciidoc` on the other hand has a great configuration for text, is standardized and a many different plugins to support basically everything.
+
+==== Decision
+
+We decided to favor `asciidoc` over `markdown` because it is standardized, has more features while being almost as simple as `markdown`. 
+
+==== Consequences
+
+As of today, we rarely used `markdown` in any documentation, so the impact in migration is neglectible. Current `markdown` documentation does not need to be updated, but it would be highly appreciated to do so.
