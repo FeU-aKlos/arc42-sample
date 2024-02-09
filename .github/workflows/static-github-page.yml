@@ -33,10 +33,11 @@ jobs:
         uses: actions/checkout@v4
       - name: generate docu html
         run: |
-          chmod +x ./.docs/arc42/init.sh
-          ./.docs/arc42/init.sh        
-          chmod +x ./.docs/arc42/create-html.sh
-          ./.docs/arc42/create-html.sh
+          cd ./.docs/arc42
+          chmod +x ./init.sh
+          ./init.sh        
+          chmod +x ./create-html.sh
+          ./create-html.sh
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
