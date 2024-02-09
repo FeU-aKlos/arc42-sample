@@ -38,6 +38,9 @@ jobs:
           ./init.sh        
           chmod +x ./create-html.sh
           ./create-html.sh
+          pwd
+      - name: test dir
+        run: pwd
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
