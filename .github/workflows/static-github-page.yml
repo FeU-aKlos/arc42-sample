@@ -35,7 +35,8 @@ jobs:
         run: |
           cd ./.docs/arc42
           chmod +x ./init.sh
-          ./init.sh        
+          ./init.sh      
+          mkdir output
           chmod +x ./create-html.sh
           ./create-html.sh
           pwd
