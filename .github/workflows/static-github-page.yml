@@ -39,9 +39,6 @@ jobs:
           mkdir output
           chmod +x ./create-html.sh
           ./create-html.sh
-          pwd
-          ls output
-          mv output/index.html ../../index.html
       - name: test dir
         run: pwd
       - name: Setup Pages
@@ -49,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './.doc/arc42/output'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
