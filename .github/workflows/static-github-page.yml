@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
       - name: generate docu html
         run: |
-          cd ./.docs/arc42
+          cd .docs/arc42
           chmod +x ./init.sh
           ./init.sh      
           mkdir output
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './.doc/arc42/output'
+          path: '.docs/arc42/output'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
