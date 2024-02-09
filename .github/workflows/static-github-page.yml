@@ -39,6 +39,7 @@ jobs:
           chmod +x ./create-html.sh
           ./create-html.sh
           pwd
+          ls output
           mv output/index.html ../../index.html
       - name: test dir
         run: pwd
