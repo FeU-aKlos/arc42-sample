@@ -1,0 +1,17 @@
+
+system: The whole system {
+    componentOne: Component One
+    componentTwo: Component Two {
+        subComponent: Sub Component
+    }
+}
+
+externalSystemOne: External System
+externalSystemOne.shape: cloud
+
+externalSystemTwo: External System
+
+
+system.componentOne -> externalSystemTwo
+externalSystemOne -> system
+system.componentOne -> system.componentTwo

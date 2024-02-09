@@ -1,0 +1,101 @@
+direction: right
+
+Quality: "Software product quality"
+
+# 1. level goals
+FunctionalSuitability: "Functional suitability"
+PerformanceEfficiency: "Performance efficiency"
+Usability
+Compatibility
+Reliability
+Security
+Maintainability
+Portability
+Quality -> FunctionalSuitability
+Quality -> PerformanceEfficiency
+Quality -> Usability
+Quality -> Compatibility
+Quality -> Reliability
+Quality -> Security
+Quality -> Maintainability
+Quality -> Portability
+
+# 2. level goals for FunctionalSuitability
+FunctionalCompleteness: "Functional completeness"
+FunctionalCorrectness: "Functional correctness"
+FunctionalAppropriateness: "Functional appropriateness"
+FunctionalSuitability -> FunctionalCompleteness
+FunctionalSuitability -> FunctionalCorrectness 
+FunctionalSuitability -> FunctionalAppropriateness 
+
+# 2. level goals for PerformanceEfficiency
+TimeBehaviour: "Time behaviour"
+ResourceUtilization: "Resource utilization"
+Capacity
+PerformanceEfficiency -> TimeBehaviour
+PerformanceEfficiency -> ResourceUtilization
+PerformanceEfficiency -> Capacity
+
+# 2. level goals for Compatibility
+CoExistence: "Co Existence"
+Interoperability
+Compatibility -> CoExistence
+Compatibility -> Interoperability
+
+# 2. level goals for Usability
+AppropriatenessRecognizability: "Appropriateness recognizability"
+Learnability
+Operability 
+UserErrorProtection: "User error protection"
+UserInterfaceAesthetics: "User interface aesthetics"
+Accessibility
+Usability -> AppropriatenessRecognizability 
+Usability -> Learnability
+Usability -> Operability
+Usability -> UserErrorProtection
+Usability -> UserInterfaceAesthetics 
+Usability -> Accessibility
+
+# 2. level goals for Reliability
+Maturity
+Availability
+FaultTolerance: "Fault tolerance"
+Recoverability
+Reliability -> Maturity 
+Reliability -> Availability
+Reliability -> FaultTolerance
+Reliability -> Recoverability 
+
+# 2. level goals for Security
+Confidentiality 
+Integrity
+NonRepudiation: "Non-repudiation"
+Accountability
+Authenticity
+Security -> Confidentiality 
+Security -> Integrity
+Security -> NonRepudiation 
+Security -> Accountability 
+Security -> Authenticity 
+
+# 2. level goals for Maintainability
+Modularity
+Reusability
+Analysability
+Modifiability
+Testability
+Maintainability -> Modularity
+Maintainability -> Reusability
+Maintainability -> Analysability
+Maintainability -> Modifiability 
+Maintainability -> Testability 
+
+# 2. level goals for Portability
+Adaptability
+Installability
+Replaceability
+Portability -> Adaptability
+Portability -> Installability
+Portability -> Replaceability 
+
+

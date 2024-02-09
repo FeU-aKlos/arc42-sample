@@ -1,0 +1,24 @@
+=== 1. Use D2 as diagram modelling tool
+
+Date: 2023-06-12
+
+==== Status
+
+Accepted
+
+==== Decision makers
+
+* Richard Heininger
+* Stephan Weißenberger
+
+==== Context
+
+All diagrams in the documentation should be accessible as code in a non proprierty way. All changes to a diagram should be traceable so everything can be reviewed and tracked using a version control system. We decided between `PlantUML` and `D2` as modelling languages. `PlantUML` is widely used and a foolproof ecosystem in almost every IDE available relying on `Java. `D2` is a new and modern approach written entirely in Go.
+
+==== Decision
+
+We decided to favor `D2` over `PlantUML` because of a much smaller footprint of the tool, a much faster generation of diagrams and overall many supported diagram types and more supported output formats.
+
+==== Consequences
+
+As of today, we rarely used `PlantUML` in any documentation, so the impact in migration is neglectible. Due to `D2` being very new the featureset could still change every day and is considered less stable. Current `PlantUML` diagrams do not need to be updated, but it would be highly appreciated to do so.
