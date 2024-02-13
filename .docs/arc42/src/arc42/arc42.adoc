@@ -11,7 +11,7 @@
 // configure EN settings for asciidoc
 include::chapters/config.adoc[]
 
-= image:mmmake_logo_landscape_claim_black.svg[mmmmake,455] image:arc42-logo.png[arc42] GHA LAIDA
+= image:mmmake_logo_landscape_claim_black.svg[mmmmake,455] image:arc42-logo.png[arc42] GHA LAIDAasdad
 :revnumber: 1.0
 :revdate: March 2023
 :revremark: (sw arc channel template)
