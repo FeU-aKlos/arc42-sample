@@ -11,7 +11,7 @@
 // configure EN settings for asciidoc
 include::chapters/config.adoc[]
 
-= image:mmmake_logo_landscape_claim_black.svg[mmmmake,455] image:arc42-logo.png[arc42] GHA LAIDAasdad
+= image:mmmake_logo_landscape_claim_black.svg[mmmmake,455] image:arc42-logo.png[arc42] DOCtopus 
 :revnumber: 1.0
 :revdate: March 2023
 :revremark: (sw arc channel template)
@@ -22,7 +22,7 @@ include::chapters/about-arc42.adoc[]
 
 
 
-image::example.d2.svg["Example usage of d2 diagram"]
+image::example.svg["Example usage of d2 diagram"]
 
 
 //additional style for arc42 help callouts
@@ -106,5 +106,3 @@ include::chapters/11_technical_risks.adoc[]
 <<<<
 // 12. Glossary
 include::chapters/12_glossary.adoc[]
-
-

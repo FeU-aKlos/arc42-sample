@@ -21,7 +21,7 @@ These include
 * underlying business goals, 
 * essential features, 
 * essential functional requirements, 
-* quality goals for the architecture and
+* quality goals for the architecture,
 * relevant stakeholders and their expectations
 ****
 

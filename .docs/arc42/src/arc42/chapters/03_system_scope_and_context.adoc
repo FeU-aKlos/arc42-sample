@@ -44,7 +44,7 @@ See https://docs.arc42.org/section-3/[Context and Scope] in the arc42 documentat
 === Business Context
 
 
-image::03_business_context.d2.svg["Business Context"]
+image::03_business_context.svg["Business Context"]
 
 [cols="1,1"]
 |===
@@ -84,7 +84,7 @@ The title of the table is the name of your system, the three columns contain the
 
 === Technical Context
 
-image::03_technical_context.d2.svg["Technical Context"]
+image::03_technical_context.svg["Technical Context"]
 
 [role="arc42help"]
 ****
