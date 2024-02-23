@@ -36,6 +36,6 @@ jobs:
       - name: Build and push image
         run: |
           cd backend
-          docker build -t ghcr.io/namespace/arc42-sample/backend:${IMAGE_TAG} .
+          docker build -t ghcr.io/namespace/arc42-sample/backend:${GITHUB_ENV} .
           echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u feu-aklos --password-stdin
-          docker push ghcr.io/feu-aklos/arc42-sample/backend:${IMAGE_TAG}
+          docker push ghcr.io/feu-aklos/arc42-sample/backend:${GITHUB_ENV}
