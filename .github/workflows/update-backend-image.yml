@@ -25,7 +25,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Build and push image
         run: |
-          cd backend
           docker build -t ghcr.io/feu-aklos/arc42-sample/backend:latest .
           echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u feu-aklos --password-stdin
           docker push ghcr.io/feu-aklos/arc42-sample/backend:latest
