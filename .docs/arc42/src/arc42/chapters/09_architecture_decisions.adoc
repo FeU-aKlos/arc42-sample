@@ -13,7 +13,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-design-decisions]]
 == Architecture Decisions
 
-[role="arc42help"]
+
 ****
 .Contents
 Important, expensive, large scale or risky architecture decisions including rationales.

@@ -1,0 +1,31 @@
+# write a github action, which automatically rebuilds the backend images. The rebuild should be triggered by push on main an change in backend folder. The image should be pushed to ghcr.io/feu-aklos/arc42-sample/backend:latest
+name: Update Backend Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+concurrency:
+  group: "backend"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build and push image
+        run: |
+          cd backend
+          docker build -t ghcr.io/feu-aklos/arc42-sample/backend:latest .
+          echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u feu-aklos --password-stdin
+          docker push ghcr.io/feu-aklos/arc42-sample/backend:latest
