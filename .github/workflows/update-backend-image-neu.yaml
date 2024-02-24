@@ -65,5 +65,5 @@ jobs:
           context: ./backend
           file: ./Dockerfile
           push: true
-          tags: $REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+          tags: $REGISTRY/$OWNER/${IMAGE_NAME##*/}:$IMAGE_TAG
       
