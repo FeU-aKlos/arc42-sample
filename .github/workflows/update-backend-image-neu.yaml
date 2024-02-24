@@ -52,6 +52,15 @@ jobs:
         echo ${{ env.REGISTRY }}
         echo ${{ github.actor }}
         echo ${{ env.IMAGE_NAME }}
+
+    - name: Extract metadata (tags, labels) for Docker
+      env:
+        REGISTRY: ghcr.io
+        IMAGE_NAME: ${{ github.repository }}
+      id: meta
+      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/backend
         
     - name: Build and Push Docker Image
       env:
@@ -63,7 +72,7 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ghcr.io/feu-aklos/arc42-sample:debugv0
+          tags: ${{ env.IMAGE_TAG }}
 #$REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0      
 
 # echo $OWNER
