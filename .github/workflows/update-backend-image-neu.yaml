@@ -1,0 +1,55 @@
+name: Update Backend Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
+  release:
+    types: [published]
+
+concurrency:
+  group: "backend-${{ github.event_name }}"
+  cancel-in-progress: false
+
+jobs:
+  build-push:
+    name: Buid and push Docker image to GitHub Container registry
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Login to GitHub Container registry
+      uses: docker/login-action@v3
+      env:
+          GITHUB_USER: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          registry: ghcr.io
+          username: $GITHUB_USER
+          password: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set IMAGE_TAG
+      run: |
+        if [[ "${{ github.event_name }}" == "release" ]]; then
+          echo "IMAGE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        else
+          IMAGE_TAG="dev-$(git rev-parse --short HEAD)"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+        fi
+
+    - name: Build and Push Docker Image
+      env:
+          REGISTRY: ghcr.io
+          OWNER: feu-aklos
+          IMAGE_NAME: ${{ github.repository }}
+      uses: docker/build-push-action@v5
+      with:
+          context: ./backend
+          file: ./Dockerfile
+          push: true
+          tags: $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG

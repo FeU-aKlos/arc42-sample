@@ -15,28 +15,10 @@ registries:
   create:
     name: registry.localhost
     host: "0.0.0.0"
-    hostPort: "12345"
-  mirrors:
-    "ghcr.io":
-      endpoint:
-        - "https://ghcr.io"
-  configs:
-    "ghcr.io":
-      auth:
-        username: feu-aklos
-        password: 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
-# options:
-#   k3d:
-#     wait: true
-#     timeout: "60s"
-#     disableLoadbalancer: false
-#     disableImageVolume: false
-#     disableRollback: false
-#     loadbalancer:
-#       configOverrides:
-#         - settings.workerConnections=2048
-#   kubeconfig:
-#     updateDefaultKubeconfig: true
-#     switchCurrentContext: true
-#   runtime:
-#     gpuRequest: all
+    hostPort: "5000"
+options:
+  kubeconfig:
+    updateDefaultKubeconfig: true
+    switchCurrentContext: true
+  runtime:
+    gpuRequest: all
