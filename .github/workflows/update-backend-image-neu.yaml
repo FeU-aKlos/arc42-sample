@@ -49,13 +49,10 @@ jobs:
 
       run: |
         echo $REGISTRY
-        echo $OWNER
-        echo $IMAGE_NAME
-        echo $IMAGE_TAG
-        echo "Repository name is ${GITHUB_REPOSITORY##*/}"
-        echo "Repository owner is ${{ github.repository_owner }}"
-        echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
-        echo $REGISTRY/$OWNER/${IMAGE_NAME##*/}:$IMAGE_TAG
+        echo ${{ env.REGISTRY }}
+        echo ${{ github.actor }}
+        echo ${{ env.IMAGE_NAME }}
+        
     - name: Build and Push Docker Image
       env:
           REGISTRY: ghcr.io
@@ -68,3 +65,11 @@ jobs:
           push: true
           tags: ghcr.io/feu-aklos/arc42-sample:debugv0
 #$REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0      
+
+# echo $OWNER
+# echo $IMAGE_NAME
+# echo $IMAGE_TAG
+# echo "Repository name is ${GITHUB_REPOSITORY##*/}"
+# echo "Repository owner is ${{ github.repository_owner }}"
+# echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
+# echo $REGISTRY/$OWNER/${IMAGE_NAME##*/}:$IMAGE_TAG
