@@ -24,7 +24,7 @@ registries:
     "ghcr.io":
       auth:
         username: feu-aklos
-        password: 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
+        password: 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
 # options:
 #   k3d:
 #     wait: true
