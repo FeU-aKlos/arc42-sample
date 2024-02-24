@@ -58,7 +58,7 @@ jobs:
         REGISTRY: ghcr.io
         IMAGE_NAME: ${{ github.repository }}
       id: meta
-      uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+      uses: docker/metadata-action@v5
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         
@@ -72,7 +72,9 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ${{ env.IMAGE_TAG }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          #tags: ${{ env.IMAGE_TAG }}
 #$REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0      
 
 # echo $OWNER
