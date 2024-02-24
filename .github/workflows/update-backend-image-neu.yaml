@@ -64,7 +64,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
           context: ./backend
-          file: ./Dockerfile
+          file: ./backend/Dockerfile
           push: true
           tags: ghcr.io/feu-aklos/arc42-sample/backend:debugv0
 #$REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0      
