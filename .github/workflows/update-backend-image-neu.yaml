@@ -53,3 +53,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
+      run: |
+        echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
