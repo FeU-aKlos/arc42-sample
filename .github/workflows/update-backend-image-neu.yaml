@@ -51,6 +51,7 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/backend
+        tags: ${{ env.IMAGE_TAG }}
 
     - name: debug tag
       env:
@@ -64,7 +65,7 @@ jobs:
         echo ${{ github.actor }}
         echo ${{ env.IMAGE_NAME }}
         echo ${{ steps.meta.outputs.tags }}
-        echo ${{ steps.meta.outputs.labels }}
+        
       
     - name: Build and Push Docker Image
       env:
