@@ -66,5 +66,5 @@ jobs:
           context: ./backend
           file: ./Dockerfile
           push: true
-          tags: $REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0
-      
+          tags: ghcr.io/feu-aklos/arc42-sample/backend:debugv0
+#$REGISTRY/$OWNER/${IMAGE_NAME##*/}:debugv0      
