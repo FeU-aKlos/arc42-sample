@@ -51,6 +51,7 @@ jobs:
         echo $OWNER
         echo $IMAGE_NAME
         echo $IMAGE_TAG
+        echo "Repository name is ${GITHUB_REPOSITORY##*/}"
         echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
     - name: Build and Push Docker Image
       env:
