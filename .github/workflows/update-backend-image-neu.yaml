@@ -46,12 +46,14 @@ jobs:
         REGISTRY: ghcr.io
         OWNER: feu-aklos
         IMAGE_NAME: ${{ github.repository }}
+
       run: |
         echo $REGISTRY
         echo $OWNER
         echo $IMAGE_NAME
         echo $IMAGE_TAG
         echo "Repository name is ${GITHUB_REPOSITORY##*/}"
+        echo "Repository owner is ${{ github.repository_owner }}"
         echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
     - name: Build and Push Docker Image
       env:
