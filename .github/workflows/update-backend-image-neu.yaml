@@ -41,6 +41,17 @@ jobs:
           IMAGE_TAG="dev-$(git rev-parse --short HEAD)"
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
         fi
+    
+
+    - name: Extract metadata (tags, labels) for Docker
+      env:
+        REGISTRY: ghcr.io
+        IMAGE_NAME: ${{ github.repository }}
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/backend
+
     - name: debug tag
       env:
         REGISTRY: ghcr.io
@@ -52,16 +63,9 @@ jobs:
         echo ${{ env.REGISTRY }}
         echo ${{ github.actor }}
         echo ${{ env.IMAGE_NAME }}
-
-    - name: Extract metadata (tags, labels) for Docker
-      env:
-        REGISTRY: ghcr.io
-        IMAGE_NAME: ${{ github.repository }}
-      id: meta
-      uses: docker/metadata-action@v5
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        
+        echo ${{ steps.meta.outputs.tags }}
+        echo ${{ steps.meta.outputs.labels }}
+      
     - name: Build and Push Docker Image
       env:
           REGISTRY: ghcr.io
