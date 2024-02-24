@@ -39,6 +39,8 @@ jobs:
           cd backend
           echo $IMAGE_TAG
           docker build -t ghcr.io/feu-aklos/arc42-sample/backend:$IMAGE_TAG .
-          echo ${{ secrets.GITHUB_TOKEN }}
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u feu-aklos --password-stdin
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo $GITHUB_TOKEN
+          echo $GITHUB_TOKEN | docker login ghcr.io -u feu-aklos --password-stdin
           docker push ghcr.io/feu-aklos/arc42-sample/backend:$IMAGE_TAG
