@@ -1,0 +1,42 @@
+apiVersion: k3d.io/v1alpha3
+kind: Simple
+name: doctopus
+servers: 1
+agents: 1
+volumes:
+  - volume: $MNT_PATH:/mnt/data
+    nodeFilters:
+      - all
+ports:
+  - port: 80:80
+    nodeFilters:
+      - loadbalancer
+registries:
+  create:
+    name: registry.localhost
+    host: "0.0.0.0"
+    hostPort: "12345"
+  mirrors:
+    "ghcr.io":
+      endpoint:
+        - "https://ghcr.io"
+  configs:
+    "ghcr.io":
+      auth:
+        username: feu-aklos
+        password: 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
+# options:
+#   k3d:
+#     wait: true
+#     timeout: "60s"
+#     disableLoadbalancer: false
+#     disableImageVolume: false
+#     disableRollback: false
+#     loadbalancer:
+#       configOverrides:
+#         - settings.workerConnections=2048
+#   kubeconfig:
+#     updateDefaultKubeconfig: true
+#     switchCurrentContext: true
+#   runtime:
+#     gpuRequest: all
