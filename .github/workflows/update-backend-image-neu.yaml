@@ -58,12 +58,12 @@ jobs:
     - name: Build and Push Docker Image
       env:
           REGISTRY: ghcr.io
-          #OWNER: feu-aklos
+          OWNER: feu-aklos
           IMAGE_NAME: ${{ github.repository }}
       uses: docker/build-push-action@v5
       with:
           context: ./backend
           file: ./Dockerfile
           push: true
-          tags: $REGISTRY/$IMAGE_NAME/backend:$IMAGE_TAG
+          tags: $REGISTRY/$IMAGE_NAME:$IMAGE_TAG-backend
       
