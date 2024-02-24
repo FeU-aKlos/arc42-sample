@@ -41,7 +41,13 @@ jobs:
           IMAGE_TAG="dev-$(git rev-parse --short HEAD)"
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
         fi
-
+    - name: debug tag
+      env:
+        REGISTRY: ghcr.io
+        OWNER: feu-aklos
+        IMAGE_NAME: ${{ github.repository }}
+      run: |
+        echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
     - name: Build and Push Docker Image
       env:
           REGISTRY: ghcr.io
@@ -53,5 +59,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
-      run: |
-        echo $REGISTRY/$OWNER/$IMAGE_NAME/backend:$IMAGE_TAG
+      
