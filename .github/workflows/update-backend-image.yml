@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "backend/**"
-      - "frontend/**"
   release:
     types: [published]
 
@@ -35,23 +34,10 @@ jobs:
             echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
           fi
           echo $IMAGE_TAG
-      - name: Set IMAGE_NAME
-        id: set_name
-        run: |
-          echo "event path: ${{ github.event_path }}"
-          cat ${{ github.event_path }}
-
-          if [[ ${{ github.event_path }} == "backend"* ]]; then
-            IMAGE_NAME="backend"
-          elif [[ ${{ github.event_path }} == "frontend"* ]]; then
-            IMAGE_NAME="frontend"
-          fi
-          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
-          echo "image name: $IMAGE_NAME"
       - name: Build and push image
         run: |
-          cd $IMAGE_NAME
+          cd backend
           echo $IMAGE_TAG
-          docker build -t ghcr.io/feu-aklos/arc42-sample/$IMAGE_NAME:$IMAGE_TAG .
+          docker build -t ghcr.io/feu-aklos/arc42-sample/backend:$IMAGE_TAG .
           echo ${{ secrets.GH_TOKEN }} | docker login ghcr.io -u feu-aklos --password-stdin
-          docker push ghcr.io/feu-aklos/arc42-sample/$IMAGE_NAME:$IMAGE_TAG
+          docker push ghcr.io/feu-aklos/arc42-sample/backend:$IMAGE_TAG
