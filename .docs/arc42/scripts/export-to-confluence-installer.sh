@@ -1,5 +1,4 @@
 #!/bin/bash
-
 bash init.sh
 bash scripts/prepare.sh
 curl -Lo dtcw doctoolchain.github.io/dtcw
