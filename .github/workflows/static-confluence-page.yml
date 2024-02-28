@@ -28,7 +28,7 @@ jobs:
       - name: Setup tools
         working-directory: .docs/arc42
         run: |
-          bash export-to-confluence-installer.sh
+          bash scripts/export-to-confluence-installer.sh
       - name: generate and push to confluence
         env:
           ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ secrets.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
