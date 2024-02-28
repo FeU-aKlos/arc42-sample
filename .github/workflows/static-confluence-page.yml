@@ -25,6 +25,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup tools
+        working-directory: .docs/arc42
+        run: |
+          bash export-to-confluence-installer.sh
       - name: generate and push to confluence
         env:
           ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ secrets.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
@@ -34,3 +38,9 @@ jobs:
         working-directory: .docs/arc42
         run: |
           bash scripts/export-to-confluence.sh
+          bash scripts/export-to-confluence.sh
+      - name: clean up
+        working-directory: .docs/arc42
+        run: |
+          bash scripts/cleanup.sh
+
