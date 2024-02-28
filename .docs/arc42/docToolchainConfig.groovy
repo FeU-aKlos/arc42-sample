@@ -184,6 +184,7 @@ changelog.with {
 
 confluence = [:]
 
+
 /**
 //tag::input-config[]
 
@@ -222,7 +223,11 @@ only 'file' or 'url' is allowed. If both are given, 'url' is ignored
 
 confluence.with {
     input = [
-            [ file: "build/html5/arc42/arc42.html" ],
+            [ 
+                file: "build/html5/arc42/arc42.html",
+                ancestorId: "2561114134"
+                
+            ],
     ]
 
     //ancestorName = '4.+arc42'
