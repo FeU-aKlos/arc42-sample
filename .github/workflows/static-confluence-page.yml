@@ -29,7 +29,7 @@ jobs:
         working-directory: .docs/arc42
         run: |
           bash scripts/export-to-confluence-installer.sh
-      - name: generate and push to confluence
+      - name: Generate and push to confluence
         env:
           ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ secrets.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
           ARC42_EXPORT_CONFLUENCE_USER_EMAIL: ${{ secrets.ARC42_EXPORT_CONFLUENCE_USER_EMAIL }}
@@ -38,9 +38,7 @@ jobs:
         working-directory: .docs/arc42
         run: |
           bash scripts/export-to-confluence.sh
-          bash scripts/export-to-confluence.sh
-      - name: clean up
+      - name: Clean up
         working-directory: .docs/arc42
         run: |
           bash scripts/cleanup.sh
-
