@@ -30,7 +30,7 @@ These include
 .Contents
 Short description of the functional requirements, driving forces, extract (or abstract)
 of requirements. Link to (hopefully existing) requirements documents
-(with version number and information where to find it). ladida
+(with version number and information where to find it). ladidaladida
 
 .Motivation
 From the point of view of the end users a system is created or modified to
