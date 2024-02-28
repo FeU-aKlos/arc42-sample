@@ -11,7 +11,7 @@ ifndef::imagesdir[:imagesdir: ../../images]
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
-== Introduction and Goalzzzz
+== Introduction and Goals
 
 ****
 Describes the relevant requirements and the driving forces that software architects and development team must consider. 
@@ -30,7 +30,7 @@ These include
 .Contents
 Short description of the functional requirements, driving forces, extract (or abstract)
 of requirements. Link to (hopefully existing) requirements documents
-(with version number and information where to find it).
+(with version number and information where to find it). ladida
 
 .Motivation
 From the point of view of the end users a system is created or modified to
