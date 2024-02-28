@@ -225,8 +225,8 @@ confluence.with {
     input = [
             [ 
                 file: "build/html5/arc42/arc42.html",
-                ancestorId: "2561114134"
-                
+                ancestorId: "2561114134",
+                ancestorName: "arc42docu"
             ],
     ]
 
