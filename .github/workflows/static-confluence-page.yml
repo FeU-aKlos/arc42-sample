@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Deploy static content to confluence page
 
 on:
   push:
@@ -25,7 +25,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: generate docu html
+      - name: generate and push to confluence
+        env:
+          ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ secrets.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
+          ARC42_EXPORT_CONFLUENCE_USER_EMAIL: ${{ secrets.ARC42_EXPORT_CONFLUENCE_USER_EMAIL }}
+          ARC42_EXPORT_CONFLUENCE_USER_PAT: ${{ secrets.ARC42_EXPORT_CONFLUENCE_USER_PAT }}
+          ARC42_EXPORT_CONFLUENCE_API: ${{ vars.ARC42_EXPORT_CONFLUENCE_API }}         
         working-directory: .docs/arc42
         run: |
           bash scripts/export-to-confluence.sh

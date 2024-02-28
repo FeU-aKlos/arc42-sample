@@ -1,8 +1,8 @@
-name: Deploy static content to Pages
+name: Deploy static content to github page
 
 on:
   push:
-    branches: 
+    branches:
       - main
     paths:
       - ".docs/**"
@@ -26,6 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: generate docu html
+
         run: |
           cd .docs/arc42
           bash init.sh
@@ -35,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.docs/arc42/output'
+          path: ".docs/arc42/output"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
