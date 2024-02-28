@@ -11,7 +11,7 @@ ifndef::imagesdir[:imagesdir: ../../images]
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
-== Introduction and Goals
+== Introduction and Goalzzzz
 
 ****
 Describes the relevant requirements and the driving forces that software architects and development team must consider. 
