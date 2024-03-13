@@ -184,7 +184,6 @@ changelog.with {
 
 confluence = [:]
 
-
 /**
 //tag::input-config[]
 
@@ -223,15 +222,10 @@ only 'file' or 'url' is allowed. If both are given, 'url' is ignored
 
 confluence.with {
     input = [
-            [ 
-                file: "build/html5/arc42/arc42.html"
-                // ,
-                // ancestorId: "2561114134",
-                // ancestorName: "arc42docu"
-            ],
+            [ file: "build/html5/arc42/arc42.html" ],
     ]
 
-    ancestorId = "2561114134"
+    ancestorId = "2525069322"
 
     //ancestorName = '4.+arc42'
 
@@ -259,7 +253,7 @@ confluence.with {
     // pages with the same title - a different pagePrefix will make them unique
     pagePrefix = ''
 
-    pageSuffix = ' (read-only)'
+    pageSuffix = ''
 
     /*
     WARNING: It is strongly recommended to store credentials securely instead of commiting plain text values to your git repository!!!
