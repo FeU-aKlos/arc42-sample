@@ -4,8 +4,8 @@ on:
   push:
     branches: 
       - main
-    paths:
-      - ".docs/**"
+    # paths:
+    #   - ".docs/**"
 
 permissions:
   contents: read
@@ -29,9 +29,10 @@ jobs:
         working-directory: .docs/arc42
         run: |
           bash scripts/export-to-confluence-installer.sh
+          
       - name: Generate and push to confluence
         env:
-          ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ secrets.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
+          ARC42_EXPORT_CONFLUENCE_SPACE_KEY: ${{ vars.ARC42_EXPORT_CONFLUENCE_SPACE_KEY }}
           ARC42_EXPORT_CONFLUENCE_USER_EMAIL: ${{ secrets.ARC42_EXPORT_CONFLUENCE_USER_EMAIL }}
           ARC42_EXPORT_CONFLUENCE_USER_PAT: ${{ secrets.ARC42_EXPORT_CONFLUENCE_USER_PAT }}
           ARC42_EXPORT_CONFLUENCE_API: ${{ vars.ARC42_EXPORT_CONFLUENCE_API }}         
